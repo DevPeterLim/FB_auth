@@ -12,7 +12,7 @@ const AddPost = (props) => {
     const comment_ref = useRef(null)
 
     const addPostHandler = ()=>{
-
+        dispatch()
     } 
 
     return (
