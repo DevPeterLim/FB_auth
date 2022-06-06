@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components"
 import { useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-const AddPost = () => {
-
-    const [comment, setComment] = useState("");
-
+const AddPost = (props) => {
+    const dispatch = useDispatch();
+    const postState = useSelector((state)=>state.postReucer);
+    
     const img_ref = useRef(null)
     const layout_ref = useRef(null)
     const comment_ref = useRef(null)
