@@ -12,7 +12,6 @@ const Login = () => {
     const loginFB = async () => {
         const user = await signInWithEmailAndPassword(auth, id_ref.current.value, pw_ref.current.value);
         console.log(user)
-
         const user_docs = await getDocs(query(
             collection(db, "users"), where("user_id", "==", user.user.email)
         ));

@@ -10,9 +10,9 @@ const Signup = () => {
     const pw_ref = React.useRef(null);
     const signupFB = async ()=>{ 
         const user = await createUserWithEmailAndPassword(auth, id_ref.current.value, pw_ref.current.value)
-        console.log(user)
+        console.log(user.user.email)
         const user_doc = await addDoc(collection(db, "users"), {user_id: user.user.email, name: name_ref.current.value});
-        console.log(user_doc.id)
+        console.log("user_doc.id", user_doc.id)
       }
 
     return (

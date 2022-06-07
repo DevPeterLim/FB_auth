@@ -1,5 +1,5 @@
 import React from "react";
-import TopNav from "./TopNav";
+import TopNav from "./components/TopNav";
 import PostList from "./PostList.js"
 import { findByLabelText } from "@testing-library/react";
 

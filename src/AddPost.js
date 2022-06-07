@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components"
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { addPostFB } from "./redux/postReducer";
+import { useForm } from "react-hook-form";
 
 const AddPost = (props) => {
     const dispatch = useDispatch();
@@ -10,10 +12,14 @@ const AddPost = (props) => {
     const img_ref = useRef(null)
     const layout_ref = useRef(null)
     const comment_ref = useRef(null)
-
-    const addPostHandler = ()=>{
-        dispatch()
-    } 
+    
+    // const addPostHandler = ()=>{
+    //     dispatch(addPostFB({
+    //     }))
+    // } 
+    const tempHandler = () => {
+        console.log(props.name)
+    }
 
     return (
         <>
@@ -26,14 +32,10 @@ const AddPost = (props) => {
             <br/>
             <input type="text" ref={comment_ref}/>게시물 작성
             <br/>
-            <button>게시글 작성</button>
+            <button onClick={tempHandler}>게시글 작성</button>
         </>
     )
 }
-
-const ImageUpload = styled.div`
-
-`
 
 
 export default AddPost;
