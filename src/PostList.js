@@ -1,7 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { loadPostFB } from "./redux/postReducer";
 
 const Post = () => {
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        dispatch(loadPostFB());
+    }, [dispatch]);
+
     return (
         <div>
             <PostBorder>
@@ -24,7 +32,9 @@ const Post = () => {
 
 const PostList = () => {
     return (
+        <>
         <Post></Post>
+        </>
     )
 }
 

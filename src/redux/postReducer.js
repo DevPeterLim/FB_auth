@@ -66,7 +66,6 @@ export const loadPostFB = () => {
             dispatch(getPostRequest(false));
         }
     }
-
 }
 
 export const addPostFB = (payload) => {
@@ -74,6 +73,7 @@ export const addPostFB = (payload) => {
         const docRef = await addDoc(collection(db, "posts"), payload);
         const post_data = {id:docRef.id, ...payload};
         dispatch(addPost(post_data));
+        console.log(post_data);
     }
 }
 
@@ -81,9 +81,12 @@ export const addPostFB = (payload) => {
 export default function postReducer(state=initState, action = {}){
     switch (action.type){
         case LOAD_POST: {
+            return {list: action.payload}
+        } case ADD_POST: {
             return {...state, list: action.payload}
-        }
-        default:
+        } case GET_REQ: {
+            return {...state, loading: action.payload}
+        } default:
             return state;
     }
 }
