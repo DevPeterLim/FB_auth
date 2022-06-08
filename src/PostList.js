@@ -3,13 +3,15 @@ import styled from "styled-components";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { loadPostFB } from "./redux/postReducer";
+import { useSelector } from "react-redux";
 
 const Post = () => {
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(loadPostFB());
     }, [dispatch]);
-
+    const postlist = useSelector(state => state.postReducer.list);
+    console.log(postlist)
     return (
         <div>
             <PostBorder>
